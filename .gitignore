@@ -1,0 +1,71 @@
+# ===============================
+# Spring Boot / Maven / Java
+# ===============================
+
+# Build folders
+target/
+build/
+out/
+
+# Maven wrapper logs
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Eclipse / STS
+.project
+.classpath
+.settings/
+.springBeans
+.sts4-cache/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.tmp
+*.swp
+
+# Environment files
+.env
+.env.*
+
+# H2 database files (if file-based db)
+*.mv.db
+*.trace.db
+
+# Generated reports
+surefire-reports/
+failsafe-reports/
+
+# Java crash logs
+hs_err_pid*
+replay_pid*
+
+# Coverage
+coverage/
+jacoco.exec
+
+# Node (if frontend later)
+node_modules/
+
+# Lombok generated config (optional)
+lombok.config
