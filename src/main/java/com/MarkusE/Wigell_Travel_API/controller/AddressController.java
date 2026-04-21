@@ -2,8 +2,6 @@ package com.MarkusE.Wigell_Travel_API.controller;
 
 import com.MarkusE.Wigell_Travel_API.dto.AddressDto;
 import com.MarkusE.Wigell_Travel_API.dto.AddressResponseDto;
-import com.MarkusE.Wigell_Travel_API.entity.Address;
-import com.MarkusE.Wigell_Travel_API.mapper.AddressMapper;
 import com.MarkusE.Wigell_Travel_API.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,6 +18,7 @@ public class AddressController {
     public AddressController(CustomerService service) {
         this.service = service;
     }
+
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")

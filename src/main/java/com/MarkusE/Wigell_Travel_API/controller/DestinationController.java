@@ -3,9 +3,6 @@ package com.MarkusE.Wigell_Travel_API.controller;
 import com.MarkusE.Wigell_Travel_API.dto.CreateDestinationDto;
 import com.MarkusE.Wigell_Travel_API.dto.DestinationResponseDto;
 import com.MarkusE.Wigell_Travel_API.entity.Destination;
-import com.MarkusE.Wigell_Travel_API.mapper.CustomerMapper;
-import com.MarkusE.Wigell_Travel_API.mapper.DestinationMapper;
-import com.MarkusE.Wigell_Travel_API.service.CustomerService;
 import com.MarkusE.Wigell_Travel_API.service.DestinationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +22,7 @@ public class DestinationController {
     public DestinationController(DestinationService destinationService) {
         this.destinationService = destinationService;
     }
+
 
     @GetMapping
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")

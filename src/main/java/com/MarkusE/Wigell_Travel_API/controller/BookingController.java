@@ -23,6 +23,7 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
+
     @GetMapping
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<BookingResponseDto>> getBookings(@RequestParam Long customerId) {
