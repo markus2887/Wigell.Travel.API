@@ -21,11 +21,9 @@ import java.util.List;
 public class DestinationController {
 
     private final DestinationService destinationService;
-    private final DestinationMapper destinationMapper;
 
-    public DestinationController(DestinationService destinationService, DestinationMapper destinationMapper) {
+    public DestinationController(DestinationService destinationService) {
         this.destinationService = destinationService;
-        this.destinationMapper = destinationMapper;
     }
 
     @GetMapping

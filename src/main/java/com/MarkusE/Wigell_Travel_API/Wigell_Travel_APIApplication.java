@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Wigell_Travel_APIApplication {
 
 	public static void main(String[] args) {
-        SpringApplication.run(Wigell_Travel_APIApplication.class, args);
+		SpringApplication.run(Wigell_Travel_APIApplication.class, args);
 	}
-
-//Markus
 }

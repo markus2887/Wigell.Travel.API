@@ -2,6 +2,7 @@ package com.MarkusE.Wigell_Travel_API.service;
 
 import com.MarkusE.Wigell_Travel_API.dto.AddressDto;
 import com.MarkusE.Wigell_Travel_API.dto.AddressResponseDto;
+import com.MarkusE.Wigell_Travel_API.dto.CreateCustomerDto;
 import com.MarkusE.Wigell_Travel_API.dto.CustomerResponseDto;
 import com.MarkusE.Wigell_Travel_API.entity.Address;
 import com.MarkusE.Wigell_Travel_API.entity.Customer;
@@ -49,13 +50,43 @@ public class CustomerService {
     }
 
     @Transactional
-    public CustomerResponseDto save(Customer customer) {
+    public CustomerResponseDto create(CreateCustomerDto dto) {
+
+        Address address = getAddress(dto.addressId());
+
+        Customer customer = customerMapper.toEntity(dto, address);
 
         log.info("Admin created customer {}", customer.getUserName());
 
-        customerRepo.save(customer);
+        Customer saved = customerRepo.save(customer);
 
-        return customerMapper.toResponseDto(customer);
+        return customerMapper.toResponseDto(saved);
+    }
+
+    @Transactional
+    public CustomerResponseDto save(Customer customer) {
+
+        Customer saved = customerRepo.save(customer);
+
+        log.info("Admin updated customer {}", saved.getUserName());
+
+        return customerMapper.toResponseDto(saved);
+    }
+
+    @Transactional
+    public CustomerResponseDto update(Long id, CreateCustomerDto dto) {
+
+        Customer existing = findById(id);
+
+        Address address = getAddress(dto.addressId());
+
+        customerMapper.updateCustomer(dto, existing, address);
+
+        Customer saved = customerRepo.save(existing);
+
+        log.info("Admin updated customer {}", saved.getUserName());
+
+        return customerMapper.toResponseDto(saved);
     }
 
     @Transactional

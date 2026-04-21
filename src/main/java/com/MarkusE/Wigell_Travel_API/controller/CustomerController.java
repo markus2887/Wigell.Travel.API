@@ -45,12 +45,7 @@ public class CustomerController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CustomerResponseDto> create(@RequestBody CreateCustomerDto dto) {
 
-        Address address = customerService.getAddress(dto.addressId());
-        Customer customer = customerMapper.toEntity(dto, address);
-
-        CustomerResponseDto saved = customerService.save(customer);
-
-        //CustomerResponseDto responseDto = customerMapper.toResponseDto(saved);
+        CustomerResponseDto saved = customerService.create(dto);
 
         URI location = URI.create("/api/v1/customers/" + saved.id());
 
@@ -63,12 +58,7 @@ public class CustomerController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CustomerResponseDto> update(@PathVariable Long id, @RequestBody CreateCustomerDto dto) {
 
-        Customer existing = customerService.findById(id);
-        Address address = customerService.getAddress(dto.addressId());
-
-        customerMapper.updateCustomer(dto, existing, address);
-
-        CustomerResponseDto response = customerService.save(existing);
+        CustomerResponseDto response = customerService.update(id, dto);
 
         return ResponseEntity.ok(response);
     }

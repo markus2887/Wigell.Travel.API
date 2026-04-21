@@ -17,7 +17,7 @@ public class AddressController {
 
     private final CustomerService service;
 
-    public AddressController(CustomerService service, AddressMapper mapper) {
+    public AddressController(CustomerService service) {
         this.service = service;
     }
 
